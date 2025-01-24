@@ -11,6 +11,31 @@
 <body>
     <h1>Django Home page in home app </h1>
     <br>
-    <h1>{{data}}</h1>
+    <table>
+        <tr>
+          <th>SNO.</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Can Vote?</th>
+        </tr>
+        {%for person in data%} <!-- context in backend is data -->
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{person.name}}</td>
+          <td>{{person.age}}</td>
+          <td>{%if person.age > 18%} yes
+            {%else %} No
+            {%endif%}
+            <!--{% if user.is_authenticated %}Hello, {{ user.username }}.{% endif %}  example how we can check --> 
+          </td>
+        </tr>
+        {%endfor%}
+      </table>
+      <p style="color: white;"> {{text | title}} </p>
 </body>
 </html> 
+
+<!-- sql querries
+python dsa
+Django
+numpy -->
